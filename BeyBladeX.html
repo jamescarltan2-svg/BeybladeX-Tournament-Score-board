@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="BeyBladestyle.css">
+    <script src="Beybladescript.js"></script>
+    <title>BeyBlade X Tournament</title>
+</head>
+<body>
+    <header class="header">
+        <img src="Resources/Images/Beyblade_X_Logo.webp" alt="beybladeXLogo">
+        <h1>
+            GRAND TOURNAMENT
+        </h1>
+        <div class="oras" > 
+            <div id="live">
+                <h3>LIVE</h3>
+            </div>
+            <p id="current-time"></p>
+        </div>
+    </header>
+
+<!-- BODY -->
+
+    <main class="main">
+        <Section class="container">
+
+<!-- PLAYER 1 -->
+
+            <div class="Player" id="PLY1">
+                <img src="Resources/Images/blue.png" alt="blue panel" id="bp">
+                <div class="playername">
+                    <p id="p1">PLAYER 1</p>
+                </div>
+                <div class="beyInsignia">
+                    <img src="" alt="circleDP" id="blade1">
+                </div>
+                <div class="nameBlade" id="nameBey1">
+                    <h3>Name</h3>
+                </div>
+                <div id="scorePlayer1">
+                    <h1>0</h1>
+                </div>
+                <div class="record" id="recordPlayer1">
+                    <p>Record</p>
+                </div>
+
+                <!-- SCORE PANEL -->
+
+                <div class="scorePanel">
+                    <div class="score box">
+                        <p>SCORE</p>
+                    </div>
+                    <div class="spin box"><p>Spin Finish</p></div>
+                    <div class="over box"><p>Over Finish</p></div>
+                    <div class="set box">
+                        <p>SET</p>
+                    </div>
+                    <div class="scoreBoard box" id="scoreBoard1">
+                        <p>0</p>
+                    </div>
+                    <div class="burst box"><p>Burst Finish</p></div>
+                    <div class="extreme box"><p>Extreme Finish</p></div>
+                    <div class="setBoard box" id="setBoard1">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="search_container">
+                    <input type="text" id="searchInput" placeholder="Select Blade...">
+                    <span class="searchIcon"><img src="" alt="searchIcon"></span>
+                </div>
+                <div class="Reset">
+                        <p>RESET</p>
+                </div>
+            </div>
+
+<!-- PLAYER 2 -->
+
+            <div class="Player" id="PLY2">
+                <img src="Resources/Images/red.png" alt="red panel" id="rp">
+                <div class="playername">
+                    <p id="p2">PLAYER 2</p>
+                </div>
+                <div class="beyInsignia">
+                    <img src="" alt="circleDP" id="blade2">
+                </div>
+                <div class="nameBlade" id="nameBey2">
+                    <h3>Name</h3>
+                </div>
+                <div id="scorePlayer2">
+                    <h1>0</h1>
+                </div>
+                <div class="record" id="recordPlayer2">
+                    <p>Record</p>
+                </div>
+
+                <!-- SCORE PANEL -->
+
+                <div class="scorePanel">
+                    <div class="score box">
+                        <p>SCORE</p>
+                    </div>
+                    <div class="spin box"><p>Spin Finish</p></div>
+                    <div class="over box"><p>Over Finish</p></div>
+                    <div class="set box">
+                        <p>SET</p>
+                    </div>
+                    <div class="scoreBoard box" id="scoreBoard2">
+                        <p>0</p>
+                    </div>
+                    <div class="burst box"><p>Burst Finish</p></div>
+                    <div class="extreme box"><p>Extreme Finish</p></div>
+                    <div class="setBoard box" id="setBoard2">
+                        <p>0</p>
+                    </div>
+                </div>
+                <div class="search_container">
+                    <input type="text" id="searchInput" placeholder="Select Blade...">
+                    <span class="searchIcon"><img src="" alt="searchIcon"></span>
+                </div>
+                <div class="Reset">
+                        <p>RESET</p>
+                </div>
+            </div>
+        </Section>
+    </main>
+    <script>
+        let time = document.getElementById("current-time");
+
+        setInterval(()=> {
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+        }, 1000)
+    </script>
+</body>
+</html>
