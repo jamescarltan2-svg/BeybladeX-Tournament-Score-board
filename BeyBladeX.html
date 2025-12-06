@@ -33,99 +33,90 @@
                 <div class="playername">
                     <p id="p1">PLAYER 1</p>
                 </div>
-                <div class="beyInsignia">
-                    <img src="" alt="circleDP" id="blade1">
+                <div class="beyInsignia1">
+                    <!-- <img src="" alt="circleDP" id="blade1"> -->
                 </div>
                 <div class="nameBlade" id="nameBey1">
                     <h3>Name</h3>
                 </div>
-                <div id="scorePlayer1">
-                    <h1>0</h1>
+                <div class="pointing">
+                <label class="pts" id="scorePlayer1">0</label><p class="pts">&nbsp - &nbsp</p><label class="pts" id="setScore1">0</label>
                 </div>
                 <div class="record" id="recordPlayer1">
-                    <p>Record</p>
+                    <p>Record &nbsp</p>
+                    <p id="p1Win">0</p>
+                    <p> - </p>
+                    <p id="p1Lose">0</p>
                 </div>
 
                 <!-- SCORE PANEL -->
 
                 <div class="scorePanel">
-                    <div class="score box">
-                        <p>SCORE</p>
-                    </div>
-                    <div class="spin box"><p>Spin Finish</p></div>
-                    <div class="over box"><p>Over Finish</p></div>
-                    <div class="set box">
-                        <p>SET</p>
-                    </div>
-                    <div class="scoreBoard box" id="scoreBoard1">
-                        <p>0</p>
-                    </div>
-                    <div class="burst box"><p>Burst Finish</p></div>
-                    <div class="extreme box"><p>Extreme Finish</p></div>
-                    <div class="setBoard box" id="setBoard1">
-                        <p>0</p>
-                    </div>
+                    <button class="box" id="spin1"><p>Spin Finish</p></button>
+                    <button class="box" id="over1"><p>Over Finish</p></button>
+                    <button class="box" id="burst1"><p>Burst Finish</p></button>
+                    <button class="box" id="extreme1"><p>Extreme Finish</p></button>
                 </div>
                 <div class="search_container">
-                    <input type="text" id="searchInput" placeholder="Select Blade...">
-                    <span class="searchIcon"><img src="" alt="searchIcon"></span>
+                    <input type="text" class="searchBox" id="searchInput1" placeholder="  Select Blade..."><button onclick="fetchBey1()" class="submit" id="search1">RIP</button>
+                    <!-- <span class="searchIcon"><img src="" alt="searchIcon"></span> -->
                 </div>
-                <div class="Reset">
+                <div class="Reset" id="P1-RESET">
                         <p>RESET</p>
                 </div>
             </div>
 
+            <div class="mainreset" id="resetAll">RESET ALL</div>
 <!-- PLAYER 2 -->
 
             <div class="Player" id="PLY2">
                 <img src="Resources/Images/red.png" alt="red panel" id="rp">
                 <div class="playername">
-                    <p id="p2">PLAYER 2</p>
+                    <p id="p2">PLAYER 1</p>
                 </div>
-                <div class="beyInsignia">
-                    <img src="" alt="circleDP" id="blade2">
+                <div class="beyInsignia2">
+                    <!-- <img src="" alt="circleDP" id="blade2"> -->
                 </div>
                 <div class="nameBlade" id="nameBey2">
                     <h3>Name</h3>
                 </div>
-                <div id="scorePlayer2">
-                    <h1>0</h1>
+                <div class="pointing">
+                <label class="pts" id="scorePlayer2">0</label><p class="pts">&nbsp - &nbsp</p><label class="pts" id="setScore2">0</label>
                 </div>
                 <div class="record" id="recordPlayer2">
-                    <p>Record</p>
+                    <p>Record &nbsp</p>
+                    <p id="p2Win">0</p>
+                    <p> - </p>
+                    <p id="p2Lose">0</p>
                 </div>
 
                 <!-- SCORE PANEL -->
 
                 <div class="scorePanel">
-                    <div class="score box">
-                        <p>SCORE</p>
-                    </div>
-                    <div class="spin box"><p>Spin Finish</p></div>
-                    <div class="over box"><p>Over Finish</p></div>
-                    <div class="set box">
-                        <p>SET</p>
-                    </div>
-                    <div class="scoreBoard box" id="scoreBoard2">
-                        <p>0</p>
-                    </div>
-                    <div class="burst box"><p>Burst Finish</p></div>
-                    <div class="extreme box"><p>Extreme Finish</p></div>
-                    <div class="setBoard box" id="setBoard2">
-                        <p>0</p>
-                    </div>
+                    <button class="box" id="spin2"><p>Spin Finish</p></button>
+                    <button class="box" id="over2"><p>Over Finish</p></button>
+                    <button class="box" id="burst2"><p>Burst Finish</p></button>
+                    <button class="box" id="extreme2"><p>Extreme Finish</p></button>
                 </div>
+                
                 <div class="search_container">
-                    <input type="text" id="searchInput" placeholder="Select Blade...">
-                    <span class="searchIcon"><img src="" alt="searchIcon"></span>
+                    <input type="name" class="searchBox" id="searchInput2" placeholder="  Select Blade..."><button onclick="fetchBey2()" class="submit" id="search2">RIP</button>
+                    <!-- <span class="searchIcon"><img src="" alt="searchIcon"></span> -->
                 </div>
-                <div class="Reset">
+                <div class="Reset" id="P2-RESET">
                         <p>RESET</p>
                 </div>
             </div>
         </Section>
+        <!-- <div class="animationTransition">
+            <div class="player1Wins">Player 1 Wins</div>
+            <div class="player2Wins">Player 2 Wins</div>
+        </div> -->
     </main>
+    <script src="beybladeUsers.js"></script>
+    <script src="Beybladescript.js"></script>
     <script>
+        
         let time = document.getElementById("current-time");
 
         setInterval(()=> {

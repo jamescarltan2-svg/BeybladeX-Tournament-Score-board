@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open BeyBladeX.html",
+            "file": "c:\\Users\\ilaga\\OneDrive\\Documents\\Programming Projects\\WEB\\UI_BEYBLADE\\BeyBladeX.html"
+        }
+    ]
+}
