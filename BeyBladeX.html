@@ -25,7 +25,10 @@
 
     <main class="main">
         <Section class="container">
-
+            <div class="beyBg">
+                <div class="round">ROUND &nbsp<p id="roundCounter">1</p></div>
+                <img src="Resources/Images/Gemini_Generated_Image_mo16komo16komo16.png" alt="">
+            </div>
 <!-- PLAYER 1 -->
 
             <div class="Player" id="PLY1">
@@ -37,7 +40,7 @@
                     <!-- <img src="" alt="circleDP" id="blade1"> -->
                 </div>
                 <div class="nameBlade" id="nameBey1">
-                    <h3>Name</h3>
+                    <h3>NAME</h3>
                 </div>
                 <div class="pointing">
                 <label class="pts" id="scorePlayer1">0</label><p class="pts">&nbsp - &nbsp</p><label class="pts" id="setScore1">0</label>
@@ -66,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="mainreset" id="resetAll">RESET ALL</div>
+            <div onclick="postBattleRecordPromise()" class="mainsubmit"><button id="submitRecord">SUBMIT RECORD</button></div>
 <!-- PLAYER 2 -->
 
             <div class="Player" id="PLY2">
@@ -78,7 +81,7 @@
                     <!-- <img src="" alt="circleDP" id="blade2"> -->
                 </div>
                 <div class="nameBlade" id="nameBey2">
-                    <h3>Name</h3>
+                    <h3>NAME</h3>
                 </div>
                 <div class="pointing">
                 <label class="pts" id="scorePlayer2">0</label><p class="pts">&nbsp - &nbsp</p><label class="pts" id="setScore2">0</label>
