@@ -61,7 +61,9 @@
                     <button class="box" id="extreme1"><p>Extreme Finish</p></button>
                 </div>
                 <div class="search_container">
-                    <input type="text" class="searchBox" id="searchInput1" placeholder="  Select Blade..."><button onclick="fetchBey1()" class="submit" id="search1">RIP</button>
+                    <input type="text" class="searchBox" id="searchInput1" list="beybladeSuggestion1" placeholder="  Select Blade...">
+                    <datalist id="beybladeSuggestion1"></datalist>
+                    <button onclick="fetchBey1()" class="submit" id="search1">RIP</button>
                     <!-- <span class="searchIcon"><img src="" alt="searchIcon"></span> -->
                 </div>
                 <div class="Reset" id="P1-RESET">
@@ -103,7 +105,9 @@
                 </div>
                 
                 <div class="search_container">
-                    <input type="name" class="searchBox" id="searchInput2" placeholder="  Select Blade..."><button onclick="fetchBey2()" class="submit" id="search2">RIP</button>
+                    <input type="name" class="searchBox" id="searchInput2" list="beybladeSuggestion2" placeholder="  Select Blade...">
+                    <datalist id="beybladeSuggestion2"></datalist>
+                    <button onclick="fetchBey2()" class="submit" id="search2">RIP</button>
                     <!-- <span class="searchIcon"><img src="" alt="searchIcon"></span> -->
                 </div>
                 <div class="Reset" id="P2-RESET">
@@ -115,6 +119,7 @@
             <div class="player1Wins">Player 1 Wins</div>
             <div class="player2Wins">Player 2 Wins</div>
         </div> -->
+        <div class="loader loader-hidden"></div>
     </main>
     <script src="beybladeUsers.js"></script>
     <script src="Beybladescript.js"></script>

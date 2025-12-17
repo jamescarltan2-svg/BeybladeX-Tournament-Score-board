@@ -187,6 +187,125 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // Fetching Bey Data
 
+// Run this when the page loads
+window.onload = () => {
+    setupSuggestions1();
+    setupSuggestions2();
+};
+
+// async function setupSuggestions1() {
+//     const suggestionList1 = document.getElementById("beybladeSuggestion1");
+    
+//     try {
+//         const response = await fetch('http://localhost:8080/beyblades');
+//         const data = await response.json();
+
+//         // Access the array inside the object
+//         const beyblades = data.beybladeList; 
+
+//         suggestionList1.innerHTML = "";
+
+//         // Create an <option> for every name
+//         beyblades.forEach(bey => {
+//             const option = document.createElement("option");
+//             option.value = bey.name;
+//             suggestionList1.appendChild(option);
+//         });
+//     } catch (error) {
+//         console.error("Error loading suggestions:", error);
+//     }
+// }
+
+// async function fetchBey1() {
+//     const searchInput1 = document.getElementById("searchInput1");
+//     const beyName1 = searchInput1.value.trim();
+    
+//     if (!beyName1) return;
+
+
+//     try {
+//         const response = await fetch(`http://localhost:8080/beyblades`);
+
+//         if (!response.ok) {
+//             throw new Error ("Could not Fetch Resource");
+//         }
+
+//         const data = await response.json();
+//         const beybladeList = data.beybladeList;
+        
+//         const user1Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName1.toLowerCase());
+
+//         if (user1Bey) {
+//             document.getElementById("p1Win").innerHTML = user1Bey.win;
+//             document.getElementById("p1Lose").innerHTML = user1Bey.lose;
+//             document.getElementById("nameBey1").innerHTML = user1Bey.name.toUpperCase();
+//         } else {
+//             console.warn("Beyblade not found on the list");
+//             alert("Beyblade not Found!")
+//         }     
+
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
+// async function setupSuggestions2() {
+//     const suggestionList2 = document.getElementById("beybladeSuggestion2");
+    
+//     try {
+//         const response = await fetch('http://localhost:8080/beyblades');
+//         const data = await response.json(); 
+
+//         // Access the array inside the object
+//         const beyblades = data.beybladeList; 
+
+//         // Clear existing options
+//         suggestionList2.innerHTML = "";
+
+//         // Create an <option> for every name in the objects
+//         beyblades.forEach(bey => {
+//             const option = document.createElement("option");
+//             option.value = bey.name; // Pulling the name property
+//             suggestionList2.appendChild(option);
+//         });
+//     } catch (error) {
+//         console.error("Error loading suggestions:", error);
+//     }
+// }
+
+// async function fetchBey2() {
+//     const searchInput2 = document.getElementById("searchInput2");
+//     const beyName2 = searchInput2.value.trim();
+    
+//     if (!beyName2) return;
+
+
+//     try {
+//         const response = await fetch(`http://localhost:8080/beyblades`);
+
+//         if (!response.ok) {
+//             throw new Error ("Could not Fetch Resource");
+//         }
+
+//         const data = await response.json();
+//         const beybladeList = data.beybladeList;
+        
+//         const user2Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName2.toLowerCase());
+
+//         if (user2Bey) {
+//             document.getElementById("p2Win").innerHTML = user2Bey.win;
+//             document.getElementById("p2Lose").innerHTML = user2Bey.lose;
+//             document.getElementById("nameBey2").innerHTML = user2Bey.name.toUpperCase();
+//         } else {
+//             console.warn("Beyblade not found on the list");
+//             alert("Beyblade not Found!")
+//         }     
+
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
 
 
 async function fetchBey1() {
@@ -242,7 +361,6 @@ async function fetchBey2() {
         console.error(error);
     }
 }
-
 
 
 //POSTING BATTLE RECORD
@@ -325,6 +443,10 @@ function postBattleRecordPromise() {
     const url = 'http://localhost:8080/record';
     console.log(battleRecord)
 
+    const loader = document.querySelector(".loader-hidden");
+
+    loader.classList.remove("loader-hidden");
+
     fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -342,7 +464,65 @@ function postBattleRecordPromise() {
     })
     .catch(error => {
         console.error('Error saving battle record:', error);
+    })
+    .finally (() => {
+        loader.classList.add("loader-hidden");
+
+        loader.addEventListener("transitionend", () => {
+        loader.remove();
+    }, {once: true});
+
+    fetchBey1();
+    fetchBey2();
     });
 }
 
+// Reset Button 
+
+// P1-Reset
+document.addEventListener("DOMContentLoaded", function(){
+
+    document.getElementById("P1-RESET").onclick = function (){
+    ptP1 = 0;
+    SS1 = 0;
+    spinCounter1 = 0;
+    overCounter1 = 0;
+    burstCounter1 = 0;
+    extremeCounter1 = 0;
+
+
+    console.log('ptP1 = '+ ptP1);
+    console.log('SS1 = '+ SS1);
+    console.log('sf1 = '+ spinCounter1);
+    console.log('of1 = '+ overCounter1);
+    console.log('bf1 = '+ burstCounter1);
+    console.log('ef1 = '+ extremeCounter1);
+    document.getElementById("setScore1").innerHTML = SS1;
+    document.getElementById("scorePlayer1").innerHTML = ptP1;
+}
+});
+
+// P2-Reset
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    document.getElementById("P2-RESET").onclick = function (){
+    ptP2 = 0;
+    SS2 = 0;
+    spinCounter2 = 0;
+    overCounter2 = 0;
+    burstCounter2 = 0;
+    extremeCounter2 = 0;
+
+
+    console.log('ptP2 = '+ ptP2);
+    console.log('SS2 = '+ SS2);
+    console.log('sf2 = '+ spinCounter2);
+    console.log('of2 = '+ overCounter2);
+    console.log('bf2 = '+ burstCounter2);
+    console.log('ef2 = '+ extremeCounter2);
+    document.getElementById("setScore2").innerHTML = SS2;
+    document.getElementById("scorePlayer2").innerHTML = ptP2;
+}
+});
 

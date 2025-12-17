@@ -313,6 +313,9 @@ header img {
     width: 20%;
     background-color: rgb(90, 3, 3);
     font-family: 'Moonhouse';
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 5px 5px 10px black;
 }
 
 .mainsubmit {
@@ -320,7 +323,7 @@ header img {
     display: flex;
     height: 6%;
     width: 12%;
-    background-color: rgb(90, 7, 7);
+    background-color: rgb(19, 104, 4);
     border-radius: 40px;
     justify-content: center;
     align-items: center;
@@ -382,6 +385,44 @@ header img {
     font-family: 'Moonhouse';
     font-size: 1.25rem;
     filter: drop-shadow(4px 4px 8px rgb(0, 255, 0));
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(3, 23, 46, 0.61);
+    transition: opacity 0.75s, visibility 0.75s;
+    z-index: 999 !important;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    border: 15px solid white;
+    border-top-color: red;
+    border-radius: 50%;
+    animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0turn);
+    }
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 /* Blue Panel */
