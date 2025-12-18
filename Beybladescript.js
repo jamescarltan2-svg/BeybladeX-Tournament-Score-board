@@ -70,16 +70,6 @@ function ptLimit2 () {if (ptP2 >=4) {
     
 }}
 
-
-// function setLimit () {if (SS1 == 2) {
-//     // player1Wins.classList.toggle('play');
-// }}
-
-// function setLimit () {if (SS2 == 2) {
-//     // player2Wins.classList.toggle('play');
-// }}
-
-
 // Spin
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -187,180 +177,185 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // Fetching Bey Data
 
+let Name1;
+let Name2;
+
 // Run this when the page loads
 window.onload = () => {
     setupSuggestions1();
     setupSuggestions2();
 };
 
-// async function setupSuggestions1() {
-//     const suggestionList1 = document.getElementById("beybladeSuggestion1");
+async function setupSuggestions1() {
+    const suggestionList1 = document.getElementById("beybladeSuggestion1");
     
-//     try {
-//         const response = await fetch('http://localhost:8080/beyblades');
-//         const data = await response.json();
+    try {
+        const response = await fetch('http://localhost:8080/beyblades');
+        const data = await response.json();
 
-//         // Access the array inside the object
-//         const beyblades = data.beybladeList; 
+        // Access the array inside the object
+        const beyblades = data.beybladeList; 
 
-//         suggestionList1.innerHTML = "";
+        suggestionList1.innerHTML = "";
 
-//         // Create an <option> for every name
-//         beyblades.forEach(bey => {
-//             const option = document.createElement("option");
-//             option.value = bey.name;
-//             suggestionList1.appendChild(option);
-//         });
-//     } catch (error) {
-//         console.error("Error loading suggestions:", error);
-//     }
-// }
-
-// async function fetchBey1() {
-//     const searchInput1 = document.getElementById("searchInput1");
-//     const beyName1 = searchInput1.value.trim();
-    
-//     if (!beyName1) return;
-
-
-//     try {
-//         const response = await fetch(`http://localhost:8080/beyblades`);
-
-//         if (!response.ok) {
-//             throw new Error ("Could not Fetch Resource");
-//         }
-
-//         const data = await response.json();
-//         const beybladeList = data.beybladeList;
-        
-//         const user1Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName1.toLowerCase());
-
-//         if (user1Bey) {
-//             document.getElementById("p1Win").innerHTML = user1Bey.win;
-//             document.getElementById("p1Lose").innerHTML = user1Bey.lose;
-//             document.getElementById("nameBey1").innerHTML = user1Bey.name.toUpperCase();
-//         } else {
-//             console.warn("Beyblade not found on the list");
-//             alert("Beyblade not Found!")
-//         }     
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
-// async function setupSuggestions2() {
-//     const suggestionList2 = document.getElementById("beybladeSuggestion2");
-    
-//     try {
-//         const response = await fetch('http://localhost:8080/beyblades');
-//         const data = await response.json(); 
-
-//         // Access the array inside the object
-//         const beyblades = data.beybladeList; 
-
-//         // Clear existing options
-//         suggestionList2.innerHTML = "";
-
-//         // Create an <option> for every name in the objects
-//         beyblades.forEach(bey => {
-//             const option = document.createElement("option");
-//             option.value = bey.name; // Pulling the name property
-//             suggestionList2.appendChild(option);
-//         });
-//     } catch (error) {
-//         console.error("Error loading suggestions:", error);
-//     }
-// }
-
-// async function fetchBey2() {
-//     const searchInput2 = document.getElementById("searchInput2");
-//     const beyName2 = searchInput2.value.trim();
-    
-//     if (!beyName2) return;
-
-
-//     try {
-//         const response = await fetch(`http://localhost:8080/beyblades`);
-
-//         if (!response.ok) {
-//             throw new Error ("Could not Fetch Resource");
-//         }
-
-//         const data = await response.json();
-//         const beybladeList = data.beybladeList;
-        
-//         const user2Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName2.toLowerCase());
-
-//         if (user2Bey) {
-//             document.getElementById("p2Win").innerHTML = user2Bey.win;
-//             document.getElementById("p2Lose").innerHTML = user2Bey.lose;
-//             document.getElementById("nameBey2").innerHTML = user2Bey.name.toUpperCase();
-//         } else {
-//             console.warn("Beyblade not found on the list");
-//             alert("Beyblade not Found!")
-//         }     
-
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
-
-
+        // Create an <option> for every name
+        beyblades.forEach(bey => {
+            const option = document.createElement("option");
+            option.value = bey.name;
+            suggestionList1.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error loading suggestions:", error);
+    }
+}
 
 async function fetchBey1() {
+    const searchInput1 = document.getElementById("searchInput1");
+    const beyName1 = searchInput1.value.trim();
+    
+    if (!beyName1) return;
+
+
     try {
+        const response = await fetch("http://localhost:8080/beyblades");
 
-        const beyName1 = document.getElementById("searchInput1").value.toUpperCase();
-
-        const response = await fetch (`http://localhost:8080/beyblade/${beyName1}`);
-
-        if(!response.ok){
-            throw new Error ("Could Not Fetch Resource")
+        if (!response.ok) {
+            throw new Error ("Could not Fetch Resource");
         }
 
         const data = await response.json();
-        const beyblade = data.beyblade;
-        const winRecord = document.getElementById("p1Win");
-        const loseRecord = document.getElementById("p1Lose");
-        const nameBlade = document.getElementById("nameBey1");
+        const beybladeList = data.beybladeList;
+        
+        const user1Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName1.toLowerCase());
 
-        winRecord.innerHTML = beyblade.win;
-        loseRecord.innerHTML = beyblade.lose;
-        nameBlade.innerHTML = beyblade.name.toUpperCase();
+        if (user1Bey) { 
+            Name1 = user1Bey.code;
+            document.getElementById("p1Win").innerHTML = user1Bey.win;
+            document.getElementById("p1Lose").innerHTML = user1Bey.lose;
+            document.getElementById("nameBey1").innerHTML = user1Bey.name.toUpperCase();
+        } else {
+            console.warn("Beyblade not found on the list");
+            alert("Beyblade not Found!")
+        }     
 
-        console.log(data);
     } catch (error) {
         console.error(error);
+    }
+}
+
+async function setupSuggestions2() {
+    const suggestionList2 = document.getElementById("beybladeSuggestion2");
+    
+    try {
+        const response = await fetch('http://localhost:8080/beyblades');
+        const data = await response.json(); 
+
+        // Access the array inside the object
+        const beyblades = data.beybladeList; 
+
+        // Clear existing options
+        suggestionList2.innerHTML = "";
+
+        // Create an <option> for every name in the objects
+        beyblades.forEach(bey => {
+            const option = document.createElement("option");
+            option.value = bey.name; // Pulling the name property
+            suggestionList2.appendChild(option);
+        });
+    } catch (error) {
+        console.error("Error loading suggestions:", error);
     }
 }
 
 async function fetchBey2() {
+    const searchInput2 = document.getElementById("searchInput2");
+    const beyName2 = searchInput2.value.trim();
+    
+    if (!beyName2) return;
+
+
     try {
+        const response = await fetch(`http://localhost:8080/beyblades`);
 
-        const beyName2 = document.getElementById("searchInput2").value.toUpperCase();
-
-        const response = await fetch (`http://localhost:8080/beyblade/${beyName2}`);
-
-        if(!response.ok){
-            throw new Error ("Could Not Fetch Resource")
+        if (!response.ok) {
+            throw new Error ("Could not Fetch Resource");
         }
 
         const data = await response.json();
-        const beyblade = data.beyblade;
-        const winRecord = document.getElementById("p2Win");
-        const loseRecord = document.getElementById("p2Lose");
-        const nameBlade = document.getElementById("nameBey2");
+        const beybladeList = data.beybladeList;
+        
+        const user2Bey = beybladeList.find(bey => bey.name.toLowerCase() === beyName2.toLowerCase());
 
-        winRecord.innerHTML = beyblade.win;
-        loseRecord.innerHTML = beyblade.lose;
-        nameBlade.innerHTML = beyblade.name.toUpperCase();
+        if (user2Bey) {
+            Name2 = user2Bey.code;
+            document.getElementById("p2Win").innerHTML = user2Bey.win;
+            document.getElementById("p2Lose").innerHTML = user2Bey.lose;
+            document.getElementById("nameBey2").innerHTML = user2Bey.name.toUpperCase();
+        } else {
+            console.warn("Beyblade not found on the list");
+            alert("Beyblade not Found!")
+        }     
 
-        console.log(data);
     } catch (error) {
         console.error(error);
     }
 }
+
+
+//Fetching & Posting Battle Record Former Work
+// async function fetchBey1() {
+//     try {
+
+//         const beyName1 = document.getElementById("searchInput1").value.toUpperCase();
+
+//         const response = await fetch (`http://localhost:8080/beyblade/${beyName1}`);
+
+//         if(!response.ok){
+//             throw new Error ("Could Not Fetch Resource")
+//         }
+
+//         const data = await response.json();
+//         const beyblade = data.beyblade;
+//         const winRecord = document.getElementById("p1Win");
+//         const loseRecord = document.getElementById("p1Lose");
+//         const nameBlade = document.getElementById("nameBey1");
+
+//         winRecord.innerHTML = beyblade.win;
+//         loseRecord.innerHTML = beyblade.lose;
+//         nameBlade.innerHTML = beyblade.name.toUpperCase();
+
+//         console.log(data);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
+// async function fetchBey2() {
+//     try {
+
+//         const beyName2 = document.getElementById("searchInput2").value.toUpperCase();
+
+//         const response = await fetch (`http://localhost:8080/beyblade/${beyName2}`);
+
+//         if(!response.ok){
+//             throw new Error ("Could Not Fetch Resource")
+//         }
+
+//         const data = await response.json();
+//         const beyblade = data.beyblade;
+//         const winRecord = document.getElementById("p2Win");
+//         const loseRecord = document.getElementById("p2Lose");
+//         const nameBlade = document.getElementById("nameBey2");
+
+//         winRecord.innerHTML = beyblade.win;
+//         loseRecord.innerHTML = beyblade.lose;
+//         nameBlade.innerHTML = beyblade.name.toUpperCase();
+
+//         console.log(data);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 
 
 //POSTING BATTLE RECORD
@@ -390,7 +385,7 @@ function conversionBattleRecord() {
     const beyName2 = document.getElementById("searchInput2").value.toUpperCase();
     
     //Player 1
-    battleRecord.playerA.code = beyName1;
+    battleRecord.playerA.code = Name1;
     battleRecord.playerA.score = SS1;
     battleRecord.playerA.spinFinish = spinCounter1;
     battleRecord.playerA.overFinish = overCounter1;
@@ -398,7 +393,7 @@ function conversionBattleRecord() {
     battleRecord.playerA.extremeFinish = extremeCounter1;
 
     //Player 2
-    battleRecord.playerB.code = beyName2;
+    battleRecord.playerB.code = Name2;
     battleRecord.playerB.score = SS2;
     battleRecord.playerB.spinFinish = spinCounter2;
     battleRecord.playerB.overFinish = overCounter2;
@@ -408,6 +403,7 @@ function conversionBattleRecord() {
     return battleRecord;
 }
 
+// POSTING BATTLE RECORD
 // async function postingBattleRecord() {
 //     const finalRecord = conversionBattleRecord();
 
