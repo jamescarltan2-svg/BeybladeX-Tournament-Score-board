@@ -1,0 +1,165 @@
+@font-face {
+    font-family: 'Moonhouse';
+    src: url(Resources/Fonts/moonhouse-font/Moonhouse-yE5M.ttf);
+}
+
+@font-face {
+    font-family: 'Monster';
+    src: url(Resources/Fonts/monster-bites-font/MonsterBitesItalic-1Gy52.ttf);
+    font-weight: 10;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(11, 9, 22);
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 0;
+    color: white;
+    background-image: url(Resources/Images/bg1.png);
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+}
+header {
+    position: relative;
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+}
+
+header img {
+    height: 6%;
+    width: 14%;
+}
+
+.landing {
+    position: relative;
+    display: flex;
+    height: 200vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerOpening {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.29);
+    border-radius: 1em;
+    padding: 0.5%;
+}
+
+.greetingCard {
+    position: relative;
+    display: flex;
+    height: 35%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.025);
+    border-radius: 1em;
+
+}
+
+.minigreet {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2em;
+}
+
+.minigreet img {
+    position: relative;
+    height: 95%;
+    width: 95%;
+    border-radius: 2em;
+}
+
+hr {
+    background-color: rgb(38, 58, 84);
+    height: 0.2em;
+    border: none;
+}
+
+.containerRanking {
+    position: relative;
+    display: grid;
+    height: 155%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.231);
+    border-radius: 25px;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 80% 185%;
+    gap: 1.5em;
+    grid-template-areas: 
+    "b1 b2 b3"
+    "b4 b4 b4";
+    justify-content: space-evenly;
+
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    border-radius: 25px;
+    padding: 1.5%;
+    justify-content: space-evenly;
+
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    height: 45%;
+    background-color: rgb(87, 87, 87);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.stats {
+    position: relative;
+    display: flex;
+    height: 25%;
+    background-color: rgb(87, 87, 87);
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.statistics {
+    position: relative;
+    display: flex;
+    height: 25%;
+    background-color: gray;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.medal {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 20%;
+    background-color: red;
+}
