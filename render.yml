@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: beybladeX  # You can change this name
+    env: static
+    buildCommand: ""         # No build command needed for plain HTML
+    publishPath: "."         # This points to your root folder
