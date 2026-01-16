@@ -190,7 +190,7 @@ async function setupSuggestions1() {
     const suggestionList1 = document.getElementById("beybladeSuggestion1");
     
     try {
-        const response = await fetch('http://localhost:8080/beyblades');
+        const response = await fetch('https://scoreboard-qxhv.onrender.com/beyblades');
         const data = await response.json();
 
         // Access the array inside the object
@@ -217,7 +217,7 @@ async function fetchBey1() {
 
 
     try {
-        const response = await fetch("http://localhost:8080/beyblades");
+        const response = await fetch("https://scoreboard-qxhv.onrender.com/beyblades");
 
         if (!response.ok) {
             throw new Error ("Could not Fetch Resource");
@@ -247,7 +247,7 @@ async function setupSuggestions2() {
     const suggestionList2 = document.getElementById("beybladeSuggestion2");
     
     try {
-        const response = await fetch('http://localhost:8080/beyblades');
+        const response = await fetch('https://scoreboard-qxhv.onrender.com/beyblades');
         const data = await response.json(); 
 
         // Access the array inside the object
@@ -275,7 +275,7 @@ async function fetchBey2() {
 
 
     try {
-        const response = await fetch(`http://localhost:8080/beyblades`);
+        const response = await fetch(`https://scoreboard-qxhv.onrender.com/beyblades`);
 
         if (!response.ok) {
             throw new Error ("Could not Fetch Resource");
@@ -436,7 +436,7 @@ function conversionBattleRecord() {
 
 function postBattleRecordPromise() {
     const finalRecord = conversionBattleRecord(); 
-    const url = 'http://localhost:8080/record';
+    const url = 'https://scoreboard-qxhv.onrender.com/record';
     console.log(battleRecord)
 
     const loader = document.querySelector(".loader-hidden");
